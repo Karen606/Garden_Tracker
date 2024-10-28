@@ -9,28 +9,110 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Plants View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantsViewController" id="Y6W-OH-hqX" customClass="PlantsViewController" customModule="Garden_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbP-a0-7UF">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfD-eE-Dcf">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="122"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FG-Al-eiK">
+                                                <rect key="frame" x="23" y="24" width="347" height="18"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9hM-2l-d7l">
+                                                        <rect key="frame" x="2" y="2" width="343" height="10"/>
+                                                        <color key="backgroundColor" name="baseOrange"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="JZr-Jy-As5"/>
+                                                        </constraints>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="9hM-2l-d7l" secondAttribute="bottom" constant="6" id="Mmr-In-v40"/>
+                                                    <constraint firstItem="9hM-2l-d7l" firstAttribute="leading" secondItem="5FG-Al-eiK" secondAttribute="leading" constant="2" id="MyZ-rn-yq6"/>
+                                                    <constraint firstItem="9hM-2l-d7l" firstAttribute="top" secondItem="5FG-Al-eiK" secondAttribute="top" constant="2" id="OIQ-kb-uQf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9hM-2l-d7l" secondAttribute="trailing" constant="2" id="UWi-OZ-BLc"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGH-ar-WPn" customClass="BaseButton" customModule="Garden_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="152.66666666666666" y="67" width="88" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="v2h-lO-QRQ"/>
+                                                    <constraint firstAttribute="width" constant="88" id="wmx-ie-Km8"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vp2-69-Wcn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="background"/>
+                                        <constraints>
+                                            <constraint firstItem="qGH-ar-WPn" firstAttribute="centerX" secondItem="hfD-eE-Dcf" secondAttribute="centerX" id="41C-LM-vQe"/>
+                                            <constraint firstItem="5FG-Al-eiK" firstAttribute="top" secondItem="hfD-eE-Dcf" secondAttribute="top" constant="24" id="Njh-XF-yDu"/>
+                                            <constraint firstItem="qGH-ar-WPn" firstAttribute="top" secondItem="5FG-Al-eiK" secondAttribute="bottom" constant="25" id="PG8-tm-D0J"/>
+                                            <constraint firstAttribute="trailing" secondItem="5FG-Al-eiK" secondAttribute="trailing" constant="23" id="i1U-fc-mye"/>
+                                            <constraint firstAttribute="bottom" secondItem="qGH-ar-WPn" secondAttribute="bottom" constant="24" id="th2-XX-eyn"/>
+                                            <constraint firstItem="5FG-Al-eiK" firstAttribute="leading" secondItem="hfD-eE-Dcf" secondAttribute="leading" constant="23" id="yHo-c4-D3m"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hfD-eE-Dcf" firstAttribute="leading" secondItem="GbP-a0-7UF" secondAttribute="leading" id="7C8-CV-mlc"/>
+                                    <constraint firstItem="hfD-eE-Dcf" firstAttribute="centerX" secondItem="GbP-a0-7UF" secondAttribute="centerX" id="bNC-2E-NuH"/>
+                                    <constraint firstAttribute="bottom" secondItem="hfD-eE-Dcf" secondAttribute="bottom" id="bht-09-QoY"/>
+                                    <constraint firstAttribute="trailing" secondItem="hfD-eE-Dcf" secondAttribute="trailing" id="wY8-qa-x7N"/>
+                                    <constraint firstItem="hfD-eE-Dcf" firstAttribute="top" secondItem="GbP-a0-7UF" secondAttribute="top" id="z1A-lL-Gyh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GbP-a0-7UF" secondAttribute="bottom" id="19T-32-XPr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GbP-a0-7UF" secondAttribute="trailing" id="9dk-Mr-wJH"/>
+                            <constraint firstItem="GbP-a0-7UF" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Igr-Iq-s9W"/>
+                            <constraint firstItem="GbP-a0-7UF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="c2f-ED-mcW"/>
+                            <constraint firstItem="GbP-a0-7UF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gxs-f3-cMT"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="plants" id="S4Y-4t-pDZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addButton" destination="qGH-ar-WPn" id="BZ9-Mp-PH7"/>
+                        <outlet property="plantsBgView" destination="5FG-Al-eiK" id="lT4-jb-avT"/>
+                        <outlet property="plantsTableView" destination="9hM-2l-d7l" id="Hrt-7m-l4l"/>
+                        <outlet property="tableViewheightConst" destination="JZr-Jy-As5" id="tpu-Ek-9I3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="-2"/>
+            <point key="canvasLocation" x="75.572519083969468" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
         <image name="plants" width="30" height="30.333333969116211"/>
         <namedColor name="background">
-            <color red="0.95686274509803915" green="0.87058823529411766" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9570000171661377" green="0.87099999189376831" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseOrange">
+            <color red="1" green="0.59999999999999998" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
