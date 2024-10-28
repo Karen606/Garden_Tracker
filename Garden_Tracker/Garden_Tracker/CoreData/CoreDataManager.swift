@@ -149,5 +149,86 @@ class CoreDataManager {
             }
         }
     }
+    
+    func saveRecord(recordModel: RecordModel, completion: @escaping (Error?) -> Void) {
+        let id = recordModel.id ?? UUID()
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Record> = Record.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                let record: Record
+
+                if let existingRecord = results.first {
+                    record = existingRecord
+                } else {
+                    record = Record(context: backgroundContext)
+                    record.id = id
+                }
+                record.name = recordModel.name
+                record.info = recordModel.info
+                record.date = recordModel.date
+                record.plantID = recordModel.plantID
+                try backgroundContext.save()
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    func fetchRecords(completion: @escaping ([RecordModel], Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Record> = Record.fetchRequest()
+            
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                var recordsModel: [RecordModel] = []
+                for result in results {
+                    let recordModel = RecordModel(id: result.id, name: result.name, info: result.info, date: result.date, plantID: result.plantID)
+                    recordsModel.append(recordModel)
+                }
+                completion(recordsModel, nil)
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+            }
+        }
+    }
+    
+    func removeRecord(by id: UUID, completion: @escaping (Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Record> = Record.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                if let record = results.first {
+                    backgroundContext.delete(record)
+                    try backgroundContext.save()
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(NSError(domain: "removeRecord", code: 404, userInfo: [NSLocalizedDescriptionKey: "Record not found"]))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
 }
 
