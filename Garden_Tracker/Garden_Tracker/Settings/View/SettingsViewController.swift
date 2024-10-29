@@ -41,7 +41,6 @@ class SettingsViewController: UIViewController {
 
     @IBAction func chooseTasksNotifications(_ sender: BaseSwitch) {
         sender.isOn = sender.isOn
-
     }
     
     @IBAction func chooseReminderNotifications(_ sender: BaseSwitch) {
