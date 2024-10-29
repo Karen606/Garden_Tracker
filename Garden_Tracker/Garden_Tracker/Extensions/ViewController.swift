@@ -11,7 +11,7 @@ extension UIViewController {
     func setNavigationTitle(title: String) {
         let titleLabel = UILabel()
         titleLabel.text = title
-        titleLabel.textColor = .black
+        titleLabel.textColor = .navTitleText
         titleLabel.font = .angkor(size: 22)
         titleLabel.textAlignment = .center
         titleLabel.sizeToFit()

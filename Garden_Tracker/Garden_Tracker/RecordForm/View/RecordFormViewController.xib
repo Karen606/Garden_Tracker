@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -45,7 +44,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXm-X2-IoW">
                                                     <rect key="frame" x="0.0" y="0.0" width="87.333333333333329" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="baseBlackText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eny-9a-N2M" customClass="BaseTextField" customModule="Garden_Tracker" customModuleProvider="target">
@@ -57,7 +56,6 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="Eny-9a-N2M" firstAttribute="leading" secondItem="QTU-BL-HpG" secondAttribute="leading" id="8u2-YR-2vc"/>
                                                 <constraint firstItem="fXm-X2-IoW" firstAttribute="leading" secondItem="QTU-BL-HpG" secondAttribute="leading" id="OF7-eB-jHe"/>
@@ -74,7 +72,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TH-o3-vcs">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="baseBlackText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VkM-7K-Hzm" customClass="BaseTextField" customModule="Garden_Tracker" customModuleProvider="target">
@@ -86,7 +84,6 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="VkM-7K-Hzm" firstAttribute="width" secondItem="SsJ-n4-Aem" secondAttribute="width" multiplier="0.5" id="4cc-5W-8jr"/>
                                                 <constraint firstAttribute="bottom" secondItem="VkM-7K-Hzm" secondAttribute="bottom" id="N0z-5O-jcn"/>
@@ -108,7 +105,7 @@
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Cancel">
-                                                        <color key="titleColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" name="baseGrayText"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="clickedCancel:" destination="-1" eventType="touchUpInside" id="7NC-JC-d9z"/>
@@ -133,7 +130,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of the plant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCw-jS-jkG">
                                             <rect key="frame" x="12" y="8.9999999999999982" width="136" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="baseBlackText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFs-i3-XC8">
@@ -152,13 +149,14 @@
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downIcon" translatesAutoresizingMaskIntoConstraints="NO" id="o03-pk-naZ">
                                             <rect key="frame" x="323" y="51" width="20" height="20"/>
+                                            <color key="tintColor" name="baseGreen"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="6bT-1Q-CJO"/>
                                                 <constraint firstAttribute="width" constant="20" id="zO8-jb-Son"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" name="contentColor"/>
                                     <constraints>
                                         <constraint firstItem="QTU-BL-HpG" firstAttribute="top" secondItem="eFs-i3-XC8" secondAttribute="bottom" constant="14" id="188-0c-Tif"/>
                                         <constraint firstItem="eFs-i3-XC8" firstAttribute="top" secondItem="BCw-jS-jkG" secondAttribute="bottom" constant="8.6666666666666714" id="2Nk-gc-jZj"/>
@@ -223,8 +221,17 @@
         <namedColor name="background">
             <color red="0.9570000171661377" green="0.87099999189376831" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="baseBlackText">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseGrayText">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseGreen">
+            <color red="0.0" green="0.4392156862745098" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="contentColor">
+            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
