@@ -4,23 +4,102 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Reminders View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RemindersViewController" id="Y6W-OH-hqX" customClass="RemindersViewController" customModule="Garden_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j10-6e-Iin">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPa-qN-2uY">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="122"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WrF-Lu-J9w">
+                                                <rect key="frame" x="6" y="24" width="381" height="18"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="44o-UM-wfd">
+                                                        <rect key="frame" x="2" y="2" width="377" height="10"/>
+                                                        <color key="backgroundColor" name="baseGreen"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="8QM-B3-XYE"/>
+                                                        </constraints>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="44o-UM-wfd" secondAttribute="trailing" constant="2" id="A2I-Ml-avA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="44o-UM-wfd" secondAttribute="bottom" constant="6" id="Cel-aN-RBC"/>
+                                                    <constraint firstItem="44o-UM-wfd" firstAttribute="top" secondItem="WrF-Lu-J9w" secondAttribute="top" constant="2" id="Od2-Lq-BjZ"/>
+                                                    <constraint firstItem="44o-UM-wfd" firstAttribute="leading" secondItem="WrF-Lu-J9w" secondAttribute="leading" constant="2" id="eJ7-WV-6Ay"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAc-Zp-8Zt" customClass="BaseButton" customModule="Garden_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="152.66666666666666" y="67" width="88" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="88" id="dM0-4x-Wmy"/>
+                                                    <constraint firstAttribute="height" constant="31" id="y2O-gu-Klc"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yNt-NO-zZZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="WrF-Lu-J9w" secondAttribute="trailing" constant="6" id="6Au-I9-TYY"/>
+                                            <constraint firstItem="WrF-Lu-J9w" firstAttribute="leading" secondItem="fPa-qN-2uY" secondAttribute="leading" constant="6" id="9S2-TP-mdO"/>
+                                            <constraint firstItem="yAc-Zp-8Zt" firstAttribute="top" secondItem="WrF-Lu-J9w" secondAttribute="bottom" constant="25" id="QdH-ya-vgo"/>
+                                            <constraint firstAttribute="bottom" secondItem="yAc-Zp-8Zt" secondAttribute="bottom" constant="24" id="gEa-eY-2sy"/>
+                                            <constraint firstItem="yAc-Zp-8Zt" firstAttribute="centerX" secondItem="fPa-qN-2uY" secondAttribute="centerX" id="lle-dL-vqn"/>
+                                            <constraint firstItem="WrF-Lu-J9w" firstAttribute="top" secondItem="fPa-qN-2uY" secondAttribute="top" constant="24" id="m4N-OS-ISa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fPa-qN-2uY" firstAttribute="centerX" secondItem="j10-6e-Iin" secondAttribute="centerX" id="69Z-iN-tXa"/>
+                                    <constraint firstItem="fPa-qN-2uY" firstAttribute="top" secondItem="j10-6e-Iin" secondAttribute="top" id="TvC-x1-i64"/>
+                                    <constraint firstItem="fPa-qN-2uY" firstAttribute="leading" secondItem="j10-6e-Iin" secondAttribute="leading" id="bRR-Ok-I4A"/>
+                                    <constraint firstAttribute="bottom" secondItem="fPa-qN-2uY" secondAttribute="bottom" id="boD-Kf-ENG"/>
+                                    <constraint firstAttribute="trailing" secondItem="fPa-qN-2uY" secondAttribute="trailing" id="dUE-Mn-suc"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j10-6e-Iin" secondAttribute="trailing" id="8CR-lp-TqE"/>
+                            <constraint firstItem="j10-6e-Iin" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="B82-dG-dOy"/>
+                            <constraint firstItem="j10-6e-Iin" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gmo-83-vfV"/>
+                            <constraint firstItem="j10-6e-Iin" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="r23-cE-A5y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="j10-6e-Iin" secondAttribute="bottom" id="yTK-Ug-8ar"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="reminders" id="hzR-mh-QVq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addButton" destination="yAc-Zp-8Zt" id="dej-8n-hpD"/>
+                        <outlet property="remindersBgView" destination="WrF-Lu-J9w" id="Yia-te-5OW"/>
+                        <outlet property="remindersTableView" destination="44o-UM-wfd" id="uzj-jL-wlj"/>
+                        <outlet property="tableViewheightConst" destination="8QM-B3-XYE" id="w2w-XM-QJK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,8 +108,11 @@
     </scenes>
     <resources>
         <image name="reminders" width="28" height="28"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background">
+            <color red="0.9570000171661377" green="0.87099999189376831" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="baseGreen">
+            <color red="0.45500001311302185" green="0.79199999570846558" blue="0.62699997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

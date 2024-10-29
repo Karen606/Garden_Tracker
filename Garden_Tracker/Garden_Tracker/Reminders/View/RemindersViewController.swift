@@ -1,44 +1,43 @@
 //
-//  PlantsViewController.swift
+//  RemindersViewController.swift
 //  Garden_Tracker
 //
-//  Created by Karen Khachatryan on 28.10.24.
+//  Created by Karen Khachatryan on 29.10.24.
 //
 
 import UIKit
 import Combine
 
-class PlantsViewController: UIViewController {
-
-    @IBOutlet weak var plantsBgView: UIView!
-    @IBOutlet weak var plantsTableView: UITableView!
+class RemindersViewController: UIViewController {
+    @IBOutlet weak var remindersBgView: UIView!
+    @IBOutlet weak var remindersTableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableViewheightConst: NSLayoutConstraint!
-    private let viewModel = PlantsViewModel.shared
+    private let viewModel = RemindersViewModel.shared
     private var cancellables: Set<AnyCancellable> = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         subscribe()
-        viewModel.fetchPlants()
+        viewModel.fetchReminders()
     }
     
     func setupUI() {
-        self.setNavigationTitle(title: "My plants")
-        plantsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        plantsTableView.layer.cornerRadius = 6
-        plantsTableView.delegate = self
-        plantsTableView.dataSource = self
-        plantsTableView.register(UINib(nibName: "PlantTableViewCell", bundle: nil), forCellReuseIdentifier: "PlantTableViewCell")
+        self.setNavigationTitle(title: "Reminders")
+        remindersTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        remindersTableView.layer.cornerRadius = 6
+        remindersTableView.delegate = self
+        remindersTableView.dataSource = self
+        remindersTableView.register(UINib(nibName: "ReminderTableViewCell", bundle: nil), forCellReuseIdentifier: "ReminderTableViewCell")
     }
     
     func subscribe() {
-        viewModel.$plants
+        viewModel.$reminders
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] plants in
+            .sink { [weak self] reminders in
                 guard let self = self else { return }
-                self.plantsTableView.reloadData()
+                self.remindersTableView.reloadData()
             }
             .store(in: &cancellables)
     }
@@ -47,7 +46,7 @@ class PlantsViewController: UIViewController {
         if keyPath == "contentSize" {
             if let newSize = change?[.newKey] as? CGSize {
                 updateTableViewHeight(newSize: newSize)
-                plantsBgView.isHidden = newSize.height == 0
+                remindersBgView.isHidden = newSize.height == 0
             }
         }
     }
@@ -60,25 +59,25 @@ class PlantsViewController: UIViewController {
     }
 
     @IBAction func clickedAdd(_ sender: UIButton) {
-        let plantFormVC = PlantFormViewController(nibName: "PlantFormViewController", bundle: nil)
-        plantFormVC.complition = { [weak self] in
+        let reminderFormVC = ReminderViewController(nibName: "ReminderViewController", bundle: nil)
+        reminderFormVC.complition = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.fetchPlants()
+            self.viewModel.fetchReminders()
         }
         self.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(plantFormVC, animated: true)
+        self.navigationController?.pushViewController(reminderFormVC, animated: true)
         self.hidesBottomBarWhenPushed = false
     }
 }
 
-extension PlantsViewController: UITableViewDelegate, UITableViewDataSource {
+extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.plants.count
+        viewModel.reminders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlantTableViewCell", for: indexPath) as! PlantTableViewCell
-        cell.setupData(plant: viewModel.plants[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderTableViewCell", for: indexPath) as! ReminderTableViewCell
+        cell.setupData(reminder: viewModel.reminders[indexPath.row])
         return cell
     }
     

@@ -27,7 +27,6 @@ class RecordsViewController: UIViewController {
         self.setNavigationTitle(title: "Records of observations")
         recordsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         recordsTableView.layer.cornerRadius = 6
-        self.hidesBottomBarWhenPushed = true
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
         recordsTableView.register(UINib(nibName: "RecordTableViewCell", bundle: nil), forCellReuseIdentifier: "RecordTableViewCell")
@@ -65,7 +64,9 @@ class RecordsViewController: UIViewController {
             guard let self = self else { return }
             self.viewModel.fetchRecords()
         }
+        self.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(recordFormVC, animated: true)
+        self.hidesBottomBarWhenPushed = false
     }
 }
 

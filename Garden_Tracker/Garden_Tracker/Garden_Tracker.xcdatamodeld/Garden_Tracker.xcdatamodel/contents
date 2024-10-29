@@ -17,4 +17,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="plantID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="plantID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
 </model>
