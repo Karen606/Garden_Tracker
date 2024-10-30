@@ -23,7 +23,6 @@ class SettingsViewController: UIViewController {
     }
     
     func setupUI() {
-        interfaceModeSwitch.isOn = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         interfaceModeLabel.font = .montserratRegular(size: 22)
         taskNotificationLabel.font = .montserratRegular(size: 20)
         taskNotificationLabel.font = .montserratRegular(size: 20)
@@ -31,6 +30,12 @@ class SettingsViewController: UIViewController {
         interfaceModeSwitch.layer.cornerRadius = interfaceModeSwitch.frame.height / 2
         tasksNotificationSwitch.layer.cornerRadius = interfaceModeSwitch.frame.height / 2
         reminderNotificationsSwitch.layer.cornerRadius = interfaceModeSwitch.frame.height / 2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        interfaceModeSwitch.isOn = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+        tasksNotificationSwitch.isOn = UserDefaults.standard.bool(forKey: "isTaskNotificationsEnabled")
+        reminderNotificationsSwitch.isOn = UserDefaults.standard.bool(forKey: "isReminderNotificationsEnabled")
     }
     
     @IBAction func chooseInterfaceMode(_ sender: BaseSwitch) {
@@ -41,10 +46,12 @@ class SettingsViewController: UIViewController {
 
     @IBAction func chooseTasksNotifications(_ sender: BaseSwitch) {
         sender.isOn = sender.isOn
+        UserDefaults.standard.set(sender.isOn, forKey: "isTaskNotificationsEnabled")
     }
     
     @IBAction func chooseReminderNotifications(_ sender: BaseSwitch) {
         sender.isOn = sender.isOn
+        UserDefaults.standard.set(sender.isOn, forKey: "isReminderNotificationsEnabled")
     }
     
     @IBAction func clickedContactUs(_ sender: UIButton) {

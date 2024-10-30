@@ -33,26 +33,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-qQ-d8y">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="155"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-Cm-Yeg">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UDd-m2-GK3">
                                                 <rect key="frame" x="2" y="2" width="339" height="147"/>
                                                 <color key="backgroundColor" name="baseOrange"/>
-                                                <color key="textColor" name="baseWhiteText"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </textView>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" name="backColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="155" id="3e9-FZ-TKW"/>
-                                            <constraint firstItem="6Bv-Cm-Yeg" firstAttribute="top" secondItem="4OW-qQ-d8y" secondAttribute="top" constant="2" id="Wml-Ma-Uc2"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Bv-Cm-Yeg" secondAttribute="trailing" constant="2" id="dsr-f9-bfp"/>
-                                            <constraint firstItem="6Bv-Cm-Yeg" firstAttribute="leading" secondItem="4OW-qQ-d8y" secondAttribute="leading" constant="2" id="kSO-nk-4d1"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Bv-Cm-Yeg" secondAttribute="bottom" constant="6" id="l8H-4Y-ZXb"/>
+                                            <constraint firstItem="UDd-m2-GK3" firstAttribute="leading" secondItem="4OW-qQ-d8y" secondAttribute="leading" constant="2" id="QCH-mI-Fml"/>
+                                            <constraint firstAttribute="bottom" secondItem="UDd-m2-GK3" secondAttribute="bottom" constant="6" id="XXj-QP-UQU"/>
+                                            <constraint firstItem="UDd-m2-GK3" firstAttribute="top" secondItem="4OW-qQ-d8y" secondAttribute="top" constant="2" id="qrf-jd-oWQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="UDd-m2-GK3" secondAttribute="trailing" constant="2" id="usp-AO-JsX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -63,26 +60,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-6Z-3wx">
                                         <rect key="frame" x="0.0" y="167" width="343" height="155"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-ym-AvH">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yXr-Sr-2CW">
                                                 <rect key="frame" x="2" y="2" width="339" height="147"/>
                                                 <color key="backgroundColor" name="baseGreen"/>
-                                                <color key="textColor" name="baseWhiteText"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </textView>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" name="backColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="dq7-ym-AvH" secondAttribute="trailing" constant="2" id="4Oy-MO-zRW"/>
-                                            <constraint firstItem="dq7-ym-AvH" firstAttribute="top" secondItem="gxa-6Z-3wx" secondAttribute="top" constant="2" id="NC0-wP-eoG"/>
+                                            <constraint firstAttribute="trailing" secondItem="yXr-Sr-2CW" secondAttribute="trailing" constant="2" id="H9L-11-lQp"/>
+                                            <constraint firstAttribute="bottom" secondItem="yXr-Sr-2CW" secondAttribute="bottom" constant="6" id="Lgn-1a-0iA"/>
+                                            <constraint firstItem="yXr-Sr-2CW" firstAttribute="top" secondItem="gxa-6Z-3wx" secondAttribute="top" constant="2" id="UyJ-9I-fyh"/>
                                             <constraint firstAttribute="height" constant="155" id="Wsm-Zr-b4k"/>
-                                            <constraint firstAttribute="bottom" secondItem="dq7-ym-AvH" secondAttribute="bottom" constant="6" id="dXW-rz-H3Z"/>
-                                            <constraint firstItem="dq7-ym-AvH" firstAttribute="leading" secondItem="gxa-6Z-3wx" secondAttribute="leading" constant="2" id="iMD-ff-Vmp"/>
+                                            <constraint firstItem="yXr-Sr-2CW" firstAttribute="leading" secondItem="gxa-6Z-3wx" secondAttribute="leading" constant="2" id="fEi-Qd-SC7"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -111,9 +105,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="recordsBgView" destination="4OW-qQ-d8y" id="y4B-MY-Pd4"/>
-                        <outlet property="recordsTextView" destination="6Bv-Cm-Yeg" id="eRJ-XU-oUD"/>
+                        <outlet property="recordsTableView" destination="UDd-m2-GK3" id="T79-Ar-uHU"/>
                         <outlet property="remindersBgView" destination="gxa-6Z-3wx" id="dUk-ct-lph"/>
-                        <outlet property="remindersTextView" destination="dq7-ym-AvH" id="uEh-gW-6M4"/>
+                        <outlet property="remindersTableView" destination="yXr-Sr-2CW" id="Apj-hc-ftJ"/>
                         <outlet property="titleLabel" destination="T4V-mC-cqb" id="ArT-d1-5DG"/>
                     </connections>
                 </viewController>
@@ -136,9 +130,6 @@
         </namedColor>
         <namedColor name="baseOrange">
             <color red="0.98039215686274506" green="0.36470588235294116" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="baseWhiteText">
-            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
